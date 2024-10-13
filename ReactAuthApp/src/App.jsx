@@ -12,6 +12,11 @@ function App() {
     setLoggedIn("LOGGED_IN");
     setUser(data.user);
   }
+
+  const handleLogout = () =>{
+    setLoggedIn("LOGGED_OUT");
+    setUser({});
+  }
   return (
     <>
       <Router>
@@ -20,7 +25,7 @@ function App() {
           <Link to="/dashboard">Dashboard</Link>
         </nav>
         <Routes>
-          <Route path="/" element={<Home loggedIn={loggedIn} handleLogin={handleLogin} />} />
+          <Route path="/" element={<Home loggedIn={loggedIn} handleLogout={handleLogout} handleLogin={handleLogin} />} />
           <Route path="/dashboard" element={<Dashboard loggedIn={loggedIn}/>} />
         </Routes>
       </Router>
